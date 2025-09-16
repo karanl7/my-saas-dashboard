@@ -1,10 +1,8 @@
-// src/context/AuthContext.jsx
-import { createContext, useState } from 'react';
-
-const AuthContext = createContext(null);
+// This file ONLY defines and exports the Provider component.
+import { useState } from 'react';
+import { AuthContext } from './authContext'; // <-- Import the context from the new file
 
 export const AuthProvider = ({ children }) => {
-  // Check localStorage for an existing token
   const [token, setToken] = useState(localStorage.getItem('authToken'));
 
   const login = (newToken) => {
@@ -23,4 +21,3 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
-
